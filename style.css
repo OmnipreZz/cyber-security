@@ -17,6 +17,10 @@ footer ul {
     display: flex;
 }
 
+hr {
+    width: 350px;
+}
+
 /*!
  * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
@@ -111,6 +115,16 @@ footer ul {
 .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
+}
+
+/*----------------------------------------------------------------------------------
+####################################################################################
+                                  rows
+####################################################################################
+-----------------------------------------------------------------------------------*/
+
+.row {
+    margin-top: 6%;
 }
 
 /* /////////////////// */
