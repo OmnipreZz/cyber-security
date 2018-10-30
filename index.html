@@ -258,60 +258,36 @@
         <hr id="practice" class="mb-5">
         <section class="ml-4 mb-5">
             <div class="mb-3">
-                <h2>
-                    Bonnes pratiques du quotidien
-                </h2>
+                <h2>Quelques bonnes pratiques du quotidien</h2>
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
+            <div>
+                <h3>Gestion des mots passe</h3>
+                <p>On le répète souvent mais c'est pour une bonne raison, quelques pratiques sont à observer dans la gestion de vos mots de passe sur internet</p>
+                <ul>
+                    <li>Ne pas réutiliser le même mot de passe pour plusieurs comptes</li>
+                    <li>Ne pas utiliser des mots de passes similaires pour plusieurs comptes :"PassWord43#" n'est pas assez différent de "paSSworD43$")</li>
+                    <li>Utiliser un mot de passe fort (nombre de caractères > 8, minuscules/majuscules, nombres, caractères spéciaux)</li>
+                </ul>
+                <p>Pour choisir vos mots de passe, sachez qu'il existe de nombreux moyen d'en générer aléatoirement, tapez "password" dans DuckduckGo pour voir :)</p>
+                <p>Sachez aussi qu'il existe pléthore de gestionnaires de mots de passe, ces derniers vous permettent de stocker tous vos mots de passe dans un coffre-fort verrouillé. Vous n'aurez plus qu'à retenir un seul password, celui qui gère votre coffre-fort. J'utilise personnellement LastPass (qui me permet avec son extension de prés remplir les champs des sites qu'il reconnait) mais n'hésitez pas à fouiller pour trouver le gestionnaire qui conviendra le mieux à vos besoins</p>
+            </div>
+            <div>
+                <h3>Du bon usage du .gitignore</h3>
+                <p>Pour toute information sensible (connection à une base de données, clefs api...) GitHub met à disposition de ses utilisateurs un système pour ne pas suivre les fichiers qui contiennent ces informations.</p>
+                <p>Il vous suffit pour cela de créer un fichier .gitignore et d'y placer le chemin relatif vers fichiers/dossiers que vous ne voulez pas faire apparaître sur GitHub.</p>
+            </div>
+            <div>
+                <h3>Déployer sur Heroku</h3>
+                <p>Le déploiement sur Heroku, ce moment tant attendu mais souvent source de nombreuses frustrations...<p>
+                <p>Je ne parlerai pas ici du déploiement en lui-même mais plus particulièrement des variables d'environnement d'heroku.<br>
+                Les variables d'environnement ce sont toutes les variables que vous utilisez pour définir l'environnement dans lequel l'application va tourner (quel type de serveur, à quelle base de données se connecter...)</p>
+                <p>Comme pour Github, il est conseillé de ne pas laisser les fichiers contenant ces informations dans le dossier de déploiement. Du coup il va vous falloir indiquer d'une autre manière à heroku quelles sont ces variables ainsi que leurs valeurs. Vous avez pour cela deux possibilités :</p>
+                <ul>
+                    <li>Aller dans les paramètres de votre projet sur heroku et annoncer vos variables dans ce qu'heroku appelle les "config vars"</li>
+                    <li>Utiliser heroku-cli pour définir directement vos variables via le terminal de commande</li>
+                </ul>
+                <a href="https://devcenter.heroku.com/articles/config-vars">La ressource qui va bien</a>
+            </div>
         </section>
 
     </div>
