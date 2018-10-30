@@ -6,9 +6,16 @@
 }
 
 .marge {
-margin-left: 5em;
+    margin-left: 5em;
 }
 
+footer {
+    background-color: #000;
+}
+
+footer ul {
+    display: flex;
+}
 
 /*!
  * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
