@@ -6,7 +6,7 @@
 }
 
 .marge {
-    margin-left: 5em;
+    margin-left: 3em;
 }
 
 footer {
@@ -15,6 +15,10 @@ footer {
 
 footer ul {
     display: flex;
+}
+
+hr {
+    width: 350px;
 }
 
 /*!
