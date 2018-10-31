@@ -161,8 +161,8 @@
                         Contraintes de validation (“validation constraints”) :<a href="http://symfony.com/doc/current/reference/constraints.html" target="_blank" rel="noopener"> http://symfony.com/doc/current/reference/constraints.html</a>
                     </li>
                     <li>
-                        Créer des contraintes personnalisées :<a href="http://symfony.com/doc/current/cookbook/validation/custom_constraint.html"
-                            target="_blank" rel="noopener"> http://symfony.com/doc/current/cookbook/validation/custom_constraint.html</a>
+                        Créer des contraintes personnalisées :<a href="https://symfony.com/doc/current/validation/custom_constraint.html"
+                            target="_blank" rel="noopener">        https://symfony.com/doc/current/validation/custom_constraint.html</a>
                     </li>
                 </ul>
                 <p>
@@ -190,6 +190,21 @@
                 <p>Assurez-vous que les mots de passe sont hashés dans la base de données, avec bcrypt sur Symfony par exemple. Laravel gére déjà le hash à la création d'un nouvel utilisateur.</p>
                 
                 <h4 class="mt-5 mb-4">3. Protéger votre application contre le Cross Site Scripting (XSS)</h4>
+                <p>Lorsqu'un utilisateur utilise les champs de saisie de vos formulaires, il peut ajouter du code JavaScript à votre page Web (Ceci est connu sous le nom de script intersite ou d'attaque XSS.). Chaque fois que de nouveaux utilisateurs ouvriront votre page, ce code JavaScript sera également exécuté, ce qui peut être malveillant.</p>
+                <p>Deux règles de base contre le XSS :</p>
+                <ul>
+                    <li>
+                        1. filtrer les entrées (inputs)
+                    </li>
+                    <li>
+                        2. échapper les données en sortie (output)
+                    </li>
+                </ul>
+                <p>Comme pour la section injections, il est très important de filtrer les entrées.Vous devez vous assurer que vous recevez le bon type de données de vos utilisateurs<br>
+                Mais pour les données “complexes”, comme des champs de texte libre (pour un commentaire ou une description, par exemple), l’utilisateur peut fournir presque n’importe quel type de données.</p>
+                <p>Sur Symfony vous pouvez utiliser des “data transformers” pour implémenter des traitements de données puissants et spécifiques.</p>
+                <p>Implémenter des data transformers :<a href="https://symfony.com/doc/current/form/data_transformers.html" target="_blank" rel="noopener"> https://symfony.com/doc/current/form/data_transformers.html</a></p>
+                <p>Sur Laravel Pour éviter les attaques XSS, vous devez utiliser la syntaxe à double accolade dans les modèles de blade: ({{$ variable}}) </p>
             </div>    
         </section>
 
