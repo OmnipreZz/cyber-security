@@ -152,7 +152,7 @@
                 que tout développeur PHP peut utiliser, afin d’assurer la sécurité et la fiabilité de l’application qu’il
                 développe.</p>
 
-                <h4 class="mt-5 mb-4">1. Protéger votre application contre les injections</h4>
+                <h4 class="mt-5 mb-4">1.Protéger votre application contre les injections</h4>
 
                 <p>Comme pour tout framework ou langage de programmation, la règle numéro 1 est la validation des inputs. Vérifiez que les données fournies par l'utilisateur dans vos formulaires soit bien celles attendues.</p>
                 <p>Symfony propose une façon simple de mettre en place des contraintes, et de créer des contraintes personnalisées.</p>
@@ -185,56 +185,56 @@
                     Sécuriser une base de données
                 </h2>
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est optio deserunt, repudiandae nobis
-                accusamus dicta
-                doloremque repellendus ipsa pariatur voluptas rerum voluptatum itaque dolorem blanditiis, illo
-                officiis,
-                praesentium enim totam!</p>
+            <div class="mt-5">
+                <h4>Des mots de passe cryptés</h4>
+                <p>C'est un peu la base mais vraiment, ne stockez pas vos mots de passe en clair. Peu importe le langage et la techno utilisés, il existe aujourd'hui un tas de bibliothèques disponibles qui permettent de hasher des chaînes de caractères avant de les stocker dans une base de données.</p>
+                <p>Ces bibliothèques permettent aussi de comparer le hashage obtenu avec un nouvel input pour comparaison (c'est le processus classique mis en oeuvre lors d'une authentification avec mot de passe).</p>
+                <p>Plus généralement, on considère que toute information un tant soit peu sensible doit être encryptée avant d'être stockée.</p>
+            </div>
+            <div class="mt-5">
+                <h4>Attribuer des rôles</h4>
+                <p>On peut imaginer plusieurs solutions pour gérer les permissions et droits des utilisateurs d'un site.<br>Considérons une table "user" :</p>
+                <table class="table table-dark table-responsive mt-5 mb-4 col-9 mx-auto">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">password</th>
+                        <th scope="col">is_admin</th>
+                    </tr>
+                    <tr>
+                        <td scope="col">INTEGER</td>
+                        <td scope="col">VARCHAR(45)</td>
+                        <td scope="col">VARCHAR(45)</td>
+                        <td scope="col">VARCHAR(45)</td>
+                        <td scope="col">BOOLEAN</td>
+                    </tr>
+                </table>
+                <p>On imagine que ce site ne distingue que deux types d'utilisateurs, les admins et les autres. Si quelqu'un parvient à injecter du SQL dans votre application, il pourrait très facilement changer la valeur du booléen et ensuite s'amuser avec les nouvelles autorisations qu'il se sera octroyé. </p>
+                <p>De plus, ce fonctionnement complexifiera le maintien de l'application. Il suffira que le client désire un troisième type d'utilisateur pour que cette modélisation ne soit plus pertinente.</p>
+                <p>Considérons maintenant une autre manière de faire :</p>
+                <table class="table table-dark table-responsive mt-5 mb-4 col-9 mx-auto">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">password</th>
+                        <th scope="col">role</th>
+                    </tr>
+                    <tr>
+                        <td scope="col">INTEGER</td>
+                        <td scope="col">VARCHAR(45)</td>
+                        <td scope="col">VARCHAR(45)</td>
+                        <td scope="col">VARCHAR(45)</td>
+                        <td scope="col">VARCHAR(45)</td>
+                    </tr>
+                </table>
+                <p>Dans cet exemple, la colonne "role" permettra de gérer tous les types de permissions. Cela permettra d'éventuellement restreindre ou étendre les droits d'un utilisateur. On peut également plus facilement segmenter les roles accordés (utilisateur, auteur, modérateur, admin...)</p>
+                <p>Cette modélisation permet également de rendre votre application un peu plus safe en étant moins transparente avec quelqu'un qui parviendrait à tirer des informations de votre base de données.</p>
+            </div>
+            <div class="mt-5">
+                <h4>Si vous voulez connaître les possibles failles de sécurité de votre base de données, n'hésitez pas à aller jeter un oeil du côté des scanners de base de données (Database Scanning Tools)</h4>
+            </div>
         </section>
 
 <!-- Bonnes pratiques du quotidien -->
@@ -244,7 +244,7 @@
                 <h2>Quelques bonnes pratiques du quotidien</h2>
             </div>
             <div class="mt-5">
-                <h3>Gestion des mots passe</h3>
+                <h4>Gestion des mots passe</h4>
                 <p>On le répète souvent mais c'est pour une bonne raison, quelques pratiques sont à observer dans la gestion de vos mots de passe sur internet</p>
                 <ul>
                     <li>Ne pas réutiliser le même mot de passe pour plusieurs comptes</li>
@@ -255,13 +255,13 @@
                 <p>Sachez aussi qu'il existe pléthore de gestionnaires de mots de passe, ces derniers vous permettent de stocker tous vos mots de passe dans un coffre-fort verrouillé. Vous n'aurez plus qu'à retenir un seul password, celui qui gère votre coffre-fort. J'utilise personnellement LastPass (qui me permet avec son extension de pré-remplir les champs des sites qu'il reconnait) mais n'hésitez pas à fouiller pour trouver le gestionnaire qui conviendra le mieux à vos besoins</p>
             </div>
             <div class="mt-5">
-                <h3>Du bon usage du .gitignore</h3>
+                <h4>Du bon usage du .gitignore</h4>
                 <p>Pour toute information sensible (connection à une base de données, clefs api...) GitHub met à disposition de ses utilisateurs un système pour ne pas suivre les fichiers qui contiennent ces informations.</p>
                 <p>Il vous suffit pour cela de créer un fichier .gitignore et d'y placer le chemin relatif vers fichiers/dossiers que vous ne voulez pas faire apparaître sur GitHub.</p>
                 <p>Typiquement, on verra aparaître dans le .gitgnore d'un projet Nodejs la ligne : /node_modules</p>
             </div>
             <div class="mt-5">
-                <h3>Déployer sur Heroku</h3>
+                <h4>Déployer sur Heroku</h4>
                 <p>Le déploiement sur Heroku, ce moment tant attendu mais souvent source de nombreuses frustrations...<p>
                 <p>Je ne parlerai pas ici du déploiement en lui-même mais plus particulièrement des variables d'environnement d'heroku.<br>
                 Les variables d'environnement ce sont toutes les variables que vous utilisez pour définir l'environnement dans lequel l'application va tourner (quel type de serveur, à quelle base de données se connecter...)</p>
@@ -273,14 +273,14 @@
                 <a href="https://devcenter.heroku.com/articles/config-vars">La doc heroku</a>
             </div>
             <div class="mt-5">
-                <h3>SafeSearch The Web</h3>
+                <h4>SafeSearch The Web</h4>
                 <p>Ne prenez rien pour acquis et réfléchissez aux outils que vous utilisez: même quelque chose d'aussi anodin que faire une recherche sur Google est déjà un choix. De nombreux moteurs de recherches proposent aujourd'hui des services performant tout en protégeant vos données.<br>
                 N'hésitez pas à varier les outils selon le contexte, chacun a ses spécificités. Pour garder le même exemple: j'utilise Duckduckgo pour toute recherche en anglais ou concernant le dev mais j'utiliserais sûrement Qwant ou Lillo pour rechercher une information en France.</p>
             </div>
             <div class="mt-5">
-                <h3>Plus généralement</h3>
-                <p>Gardez vos logiciels à jours pour les mise à jours de sécurité (ceci concerne aussi les environnemet Linux, Mac ou Window), ne cliquez pas n'importe où (internet, mails), vérifiez l'origine d'un programme avant de l'installer, ne stockez pas vos mots de passe sur votre machine, ne laissez pas de session ouverte...</p>
-                <h2>Bref, faites preuve de bon sens !!</h2>
+                <h4>Plus généralement</h4>
+                <p>Gardez vos logiciels à jours pour les mise à jours de sécurité (ceci concerne aussi les environnements Linux, Mac ou Window), ne cliquez pas n'importe où (internet, mails), vérifiez l'origine d'un programme avant de l'installer, ne stockez pas vos mots de passe sur votre machine, ne laissez pas de session ouverte...</p>
+                <h1>Bref, faites preuve de bon sens !!</h1>
             </div>
         </section>
 
