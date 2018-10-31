@@ -172,7 +172,23 @@
                 </p>
                 <br>
                 <p>Concernant la base de données, utiliser les mécaniques proposées par les frameworks est une bonne pratique. L'utilisation d'un ORM (Doctrine sur Symfony et Eloquent sur Laravel) vous protége pour les requêtes “classiques”. Évitez d’utiliser des requêtes brutes pour empêcher l’injection SQL.</p>
-                <h4 class="mt-5 mb-4">2. Gérer l’authentification et les sessions de manière sécurisée</h4>
+                <h4 class="mt-5 mb-4">2. Gérer l’authentification de manière sécurisée</h4>
+                <p>Une authentification bien gérée est primordiale pour le  bon fonctionnement de votre application et s'assurer que chacun de vos utilisateurs est accés au contenu souhaiter.
+                <br>
+                Les documentations fournissent déjà beaucoup d'éléments à respecter, vous pouvez donc vous référer directement à la section Authentification :
+                </p>
+                <ul>
+                    <li>
+                        Symfony Security :<a href="https://symfony.com/doc/current/security.html" target="_blank" rel="noopener"> https://symfony.com/doc/current/security.html</a>
+                    </li>
+                    <li>
+                        Laravel :<a href="https://laravel.com/docs/5.7/authentication"
+                            target="_blank" rel="noopener"> https://laravel.com/docs/5.7/authentication</a>
+                    </li>
+                </ul>
+                <br>
+                <p>Assurez-vous que les mots de passe sont hashés dans la base de données, avec bcrypt sur Symfony par exemple. Laravel gére déjà le hash à la création d'un nouvel utilisateur.</p>
+                
                 <h4 class="mt-5 mb-4">3. Protéger votre application contre le Cross Site Scripting (XSS)</h4>
             </div>    
         </section>
