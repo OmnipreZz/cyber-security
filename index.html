@@ -234,20 +234,20 @@
             <div class="mt-5">
                 <h4>Attribuer des rôles</h4>
                 <p>On peut imaginer plusieurs solutions pour gérer les permissions et droits des utilisateurs d'un site.<br>Considérons une table "user" :</p>
-                <table class="table table-dark table-responsive mt-5 mb-4 col-9 mx-auto">
+                <table class="table table-dark table-responsive mt-5 mb-4">
                     <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">name</th>
-                        <th scope="col">email</th>
-                        <th scope="col">password</th>
-                        <th scope="col">is_admin</th>
+                        <th scope="col" class="col-auto">id</th>
+                        <th scope="col" class="col-auto">name</th>
+                        <th scope="col" class="col-auto">email</th>
+                        <th scope="col" class="col-auto">password</th>
+                        <th scope="col" class="col-auto">is_admin</th>
                     </tr>
                     <tr>
-                        <td scope="col">INTEGER</td>
-                        <td scope="col">VARCHAR(45)</td>
-                        <td scope="col">VARCHAR(45)</td>
-                        <td scope="col">VARCHAR(45)</td>
-                        <td scope="col">BOOLEAN</td>
+                        <td scope="col" class="col-auto">INTEGER</td>
+                        <td scope="col" class="col-auto">VARCHAR(45)</td>
+                        <td scope="col" class="col-auto">VARCHAR(45)</td>
+                        <td scope="col" class="col-auto">VARCHAR(45)</td>
+                        <td scope="col" class="col-auto">BOOLEAN</td>
                     </tr>
                 </table>
                 <p>On imagine que ce site ne distingue que deux types d'utilisateurs, les admins et les autres. Si quelqu'un parvient à injecter du SQL dans votre application, il pourrait très facilement changer la valeur du booléen et ensuite s'amuser avec les nouvelles autorisations qu'il se sera octroyé. </p>
@@ -274,6 +274,7 @@
             </div>
             <div class="mt-5">
                 <h4>Si vous voulez connaître les possibles failles de sécurité de votre base de données, n'hésitez pas à aller jeter un oeil du côté des scanners de base de données (Database Scanning Tools)</h4>
+                <a href="https://www.securitywizardry.com/index.php/products/scanning-products/database-scanners.html" target="_blank" rel="noopener">Un rapide comparatif</a>
             </div>
         </section>
 
@@ -310,7 +311,7 @@
                     <li>Aller dans les paramètres de votre projet sur heroku et annoncer vos variables dans ce qu'heroku appelle les "config vars"</li>
                     <li>Utiliser heroku-cli pour définir directement vos variables via le terminal de commande</li>
                 </ul>
-                <a href="https://devcenter.heroku.com/articles/config-vars">La doc heroku</a>
+                <a href="https://devcenter.heroku.com/articles/config-vars" target="_blank" rel="noopener">La doc heroku</a>
             </div>
             <div class="mt-5">
                 <h4>SafeSearch The Web</h4>
