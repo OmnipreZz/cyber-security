@@ -152,59 +152,63 @@
                 que tout développeur PHP peut utiliser, afin d’assurer la sécurité et la fiabilité de l’application qu’il
                 développe.</p>
 
-                <h4 class="mt-5 mb-4">1. Protéger votre application contre les injections</h4>
+                <div class="mt-5">
+                    <h4>1. Protéger votre application contre les injections</h4>
+                    <p>Comme pour tout framework ou langage de programmation, la règle numéro 1 est la validation des inputs. Vérifiez que les données fournies par l'utilisateur dans vos formulaires soit bien celles attendues.</p>
+                    <p>Symfony propose une façon simple de mettre en place des contraintes, et de créer des contraintes personnalisées.</p>
+                    <ul>
+                        <li>
+                            Contraintes de validation (“validation constraints”) :<a href="http://symfony.com/doc/current/reference/constraints.html" target="_blank" rel="noopener"> http://symfony.com/doc/current/reference/constraints.html</a>
+                        </li>
+                        <li>
+                            Créer des contraintes personnalisées :<a href="https://symfony.com/doc/current/validation/custom_constraint.html"
+                                target="_blank" rel="noopener">        https://symfony.com/doc/current/validation/custom_constraint.html</a>
+                        </li>
+                    </ul>
+                    <p>
+                        Sur Laravel regarder si la validation est bien configurer : 
+                        <a href="https://laravel.com/docs/5.7/validation" target="_blank" rel="noopener">
+                            https://laravel.com/docs/5.7/validation</a>
+                    </p>
+                    <p>Concernant la base de données, utiliser les mécaniques proposées par les frameworks est une bonne pratique. L'utilisation d'un ORM (Doctrine sur Symfony et Eloquent sur Laravel) vous protége pour les requêtes “classiques”. Évitez d’utiliser des requêtes brutes pour empêcher l’injection SQL.</p>
+                </div>
 
-                <p>Comme pour tout framework ou langage de programmation, la règle numéro 1 est la validation des inputs. Vérifiez que les données fournies par l'utilisateur dans vos formulaires soit bien celles attendues.</p>
-                <p>Symfony propose une façon simple de mettre en place des contraintes, et de créer des contraintes personnalisées.</p>
-                <ul>
-                    <li>
-                        Contraintes de validation (“validation constraints”) :<a href="http://symfony.com/doc/current/reference/constraints.html" target="_blank" rel="noopener"> http://symfony.com/doc/current/reference/constraints.html</a>
-                    </li>
-                    <li>
-                        Créer des contraintes personnalisées :<a href="https://symfony.com/doc/current/validation/custom_constraint.html"
-                            target="_blank" rel="noopener">        https://symfony.com/doc/current/validation/custom_constraint.html</a>
-                    </li>
-                </ul>
-                <p>
-                    Sur Laravel regarder si la validation est bien configurer : 
-                    <a href="https://laravel.com/docs/5.7/validation" target="_blank" rel="noopener">
-                        https://laravel.com/docs/5.7/validation</a>
-                </p>
-                <br>
-                <p>Concernant la base de données, utiliser les mécaniques proposées par les frameworks est une bonne pratique. L'utilisation d'un ORM (Doctrine sur Symfony et Eloquent sur Laravel) vous protége pour les requêtes “classiques”. Évitez d’utiliser des requêtes brutes pour empêcher l’injection SQL.</p>
-                <h4 class="mt-5 mb-4">2. Gérer l’authentification de manière sécurisée</h4>
-                <p>Une authentification bien gérée est primordiale pour le  bon fonctionnement de votre application et s'assurer que chacun de vos utilisateurs est accés au contenu souhaiter.
-                <br>
-                Les documentations fournissent déjà beaucoup d'éléments à respecter, vous pouvez donc vous référer directement à la section Authentification :
-                </p>
-                <ul>
-                    <li>
-                        Symfony Security :<a href="https://symfony.com/doc/current/security.html" target="_blank" rel="noopener"> https://symfony.com/doc/current/security.html</a>
-                    </li>
-                    <li>
-                        Laravel :<a href="https://laravel.com/docs/5.7/authentication"
-                            target="_blank" rel="noopener"> https://laravel.com/docs/5.7/authentication</a>
-                    </li>
-                </ul>
-                <br>
-                <p>Assurez-vous que les mots de passe sont hashés dans la base de données, avec bcrypt sur Symfony par exemple. Laravel gére déjà le hash à la création d'un nouvel utilisateur.</p>
+                <div class="mt-5">
+                    <h4>2. Gérer l’authentification de manière sécurisée</h4>
+                    <p>Une authentification bien gérée est primordiale pour le  bon fonctionnement de votre application et s'assurer que chacun de vos utilisateurs est accés au contenu souhaiter.
+                    <br>
+                    Les documentations fournissent déjà beaucoup d'éléments à respecter, vous pouvez donc vous référer directement à la section Authentification :
+                    </p>
+                    <ul>
+                        <li>
+                            Symfony Security :<a href="https://symfony.com/doc/current/security.html" target="_blank" rel="noopener"> https://symfony.com/doc/current/security.html</a>
+                        </li>
+                        <li>
+                            Laravel :<a href="https://laravel.com/docs/5.7/authentication"
+                                target="_blank" rel="noopener"> https://laravel.com/docs/5.7/authentication</a>
+                        </li>
+                    </ul>
+                    <p>Assurez-vous que les mots de passe sont hashés dans la base de données, avec bcrypt sur Symfony par exemple. Laravel gére déjà le hash à la création d'un nouvel utilisateur.</p>
+                <div>
                 
-                <h4 class="mt-5 mb-4">3. Protéger votre application contre le Cross Site Scripting (XSS)</h4>
-                <p>Lorsqu'un utilisateur utilise les champs de saisie de vos formulaires, il peut ajouter du code JavaScript à votre page Web (Ceci est connu sous le nom de script intersite ou d'attaque XSS.). Chaque fois que de nouveaux utilisateurs ouvriront votre page, ce code JavaScript sera également exécuté, ce qui peut être malveillant.</p>
-                <p>Deux règles de base contre le XSS :</p>
-                <ul>
-                    <li>
-                        1. filtrer les entrées (inputs)
-                    </li>
-                    <li>
-                        2. échapper les données en sortie (output)
-                    </li>
-                </ul>
-                <p>Comme pour la section injections, il est très important de filtrer les entrées.Vous devez vous assurer que vous recevez le bon type de données de vos utilisateurs<br>
-                Mais pour les données “complexes”, comme des champs de texte libre (pour un commentaire ou une description, par exemple), l’utilisateur peut fournir presque n’importe quel type de données.</p>
-                <p>Sur Symfony vous pouvez utiliser des “data transformers” pour implémenter des traitements de données puissants et spécifiques.</p>
-                <p>Implémenter des data transformers :<a href="https://symfony.com/doc/current/form/data_transformers.html" target="_blank" rel="noopener"> https://symfony.com/doc/current/form/data_transformers.html</a></p>
-                <p>Sur Laravel Pour éviter les attaques XSS, vous devez utiliser la syntaxe à double accolade dans les modèles de blade: ({{$ variable}}) </p>
+                <div class="mt-5">
+                    <h4>3. Protéger votre application contre le Cross Site Scripting (XSS)</h4>
+                    <p>Lorsqu'un utilisateur utilise les champs de saisie de vos formulaires, il peut ajouter du code JavaScript à votre page Web (Ceci est connu sous le nom de script intersite ou d'attaque XSS.). Chaque fois que de nouveaux utilisateurs ouvriront votre page, ce code JavaScript sera également exécuté, ce qui peut être malveillant.</p>
+                    <p>Deux règles de base contre le XSS :</p>
+                    <ul>
+                        <li>
+                            1. filtrer les entrées (inputs)
+                        </li>
+                        <li>
+                            2. échapper les données en sortie (output)
+                        </li>
+                    </ul>
+                    <p>Comme pour la section injections, il est très important de filtrer les entrées.Vous devez vous assurer que vous recevez le bon type de données de vos utilisateurs<br>
+                    Mais pour les données “complexes”, comme des champs de texte libre (pour un commentaire ou une description, par exemple), l’utilisateur peut fournir presque n’importe quel type de données.</p>
+                    <p>Sur Symfony vous pouvez utiliser des “data transformers” pour implémenter des traitements de données puissants et spécifiques.</p>
+                    <p>Implémenter des data transformers :<a href="https://symfony.com/doc/current/form/data_transformers.html" target="_blank" rel="noopener"> https://symfony.com/doc/current/form/data_transformers.html</a></p>
+                    <p>Sur Laravel Pour éviter les attaques XSS, vous devez utiliser la syntaxe à double accolade dans les modèles de blade: ({{$ variable}}) .</p>
+                </div>
             </div>    
         </section>
 
@@ -268,7 +272,7 @@
                 praesentium enim totam!</p>
         </section>
 
-<!-- Bonnes pratiques du quotidien -->
+<!-- Bonnes pratiques du quotidien --> 
         <hr id="practice" class="mb-5">
         <section class="ml-4 mb-5">
             <div class="mb-3">
