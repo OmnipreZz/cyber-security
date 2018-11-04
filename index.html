@@ -107,30 +107,44 @@
             Node.js:</p>
     </div>
     <div class="node mt-5">
-        <div class="container">
-            <h4>Template n°1</h4>
-            <h6 class="mt-4">Description vulnerabilitée</h6>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum facilis rerum nesciunt tempore ipsam
-                accusamus? Quis sint, soluta error expedita ullam temporibus fugiat unde reprehenderit eligendi quasi
-                explicabo, architecto corporis.</p>
-            <h6 class="mt-4">Exemple de code</h6>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, debitis dolorum quia optio laudantium
-                magnam, rerum eius quam eos illum aperiam. Provident, aliquid a fugiat quas maiores eveniet ipsam
-                perspiciatis?</p>
-            <h6 class="mt-4">Quelle solution?</h6>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab et autem, porro, tenetur aliquid nihil sit
-                magni molestiae dolorem, alias suscipit officia similique debitis hic soluta quod quibusdam excepturi
-                dolores!</p>
-            <h6 class="mt-4">Sources</h6>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum optio quos modi earum repellat, quae
-                ab
-                velit assumenda? Repellat et quia atque quis hic dolor enim dolores consectetur aperiam soluta.</p>
-        </div>
+            <h4>Meilleures pratiques en production : <a href="http://expressjs.com/fr/advanced/best-practice-security.html">Fournis par le site d'Express</a> </h4>
+            <h6 class="mt-4">
+                Cet article traite des meilleures pratiques en terme de sécurité pour les applications Express déployées en production.</h6>
+            <ul>
+                <li>Utilisez TLS</li>
+                <p>Si votre application traite ou transmet des données sensibles, utilisez TLS (Transport Layer Security) afin de sécuriser la connexion et les données.</p>
+                <li>Utilisez Helmet</li>
+                <p>Helmet vous aide à protéger votre application de certaines des vulnérabilités bien connues du Web en configurant de manière appropriée des en-têtes HTTP.</p>
+                <li>Désactivez au minimum l’en-tête X-Powered-By si vous n'utilisez pas helmet</li>
+                <pre><code>app.disable('x-powered-by');</code></pre>
+                <li>Utilisez les cookies de manière sécurisée</li>
+                    <ul>
+                        <li>express-session qui remplace le middleware express.session intégré à Express 3.x.</li>
+                        <li>cookie-session qui remplace le middleware express.cookieSession intégré à Express 3.x.
+                        </li>
+                    </ul>
+                    <li>N’utilisez pas de nom de cookie de session par défaut
+                    </li>
+                    <pre><code>var session = require('express-session');
+    app.set('trust proxy', 1) // trust first proxy
+    app.use( session({
+    secret : 's3Cur3',
+    name : 'sessionId',
+    }));</code></pre>
+            </ul>
+    </div>
+    <li>Définissez des options de sécurité de cookie</li>
+    <li>Gardez un oeil sur les recommandations <a href="https://www.npmjs.com/advisories">Node Security Project</a></li>
+
+    <p>Il existe encore beaucoup de failles, donc de bonnes pratiques a connaitres mais celles-ci restent les prioritées absolues</p>
+
+    <div class="node mt-5">
+        <h4>Listing de plusieurs sources et outils interessants</h4>
     </div>
 
     <div class="row mt-5">
         <div class="col-sm-8">
-            <h4 class="title">Sécuriser une application Node.JS avec Intrinsic</h4>
+            <h5 class="title">Nous continuons dans les packages...</h5>
 
             <p>Intrinsic suppose que les modules mal intentionnés peuvent se retrouver dans les
                 applications Node.js. L'application Node.js typique comprend environ 95% de modules tiers.
